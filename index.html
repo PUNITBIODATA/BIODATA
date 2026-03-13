@@ -160,6 +160,22 @@ td:first-child {
     font-size: 20px;
     color: #6b4c33;
 }
+       /* This removes the blue lines and outlines from all links and buttons */
+a, a:hover, a:focus, a:active {
+    text-decoration: none !important;
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent; /* Removes the blue flash on mobile tap */
+}
+
+.iconbtn, .photo-btn {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Ensure the icon itself doesn't have an underline */
+.iconbtn i {
+    text-decoration: none !important;
+}
 </style>
     <script>
         function showPage(page) {
