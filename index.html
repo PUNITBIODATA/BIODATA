@@ -8,209 +8,159 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <style>
-        /* Base Styles */
-        * {
-            box-sizing: border-box;
-        }
+   <style>
+/* Base Styles */
+* {
+    box-sizing: border-box;
+}
 
-        body {
-            margin: 0;
-            background: #f5f1e8;
-            font-family: 'Open Sans', sans-serif;
-            padding: 10px;
-        }
+body {
+    margin: 0;
+    background: #f5f1e8;
+    font-family: 'Open Sans', sans-serif;
+}
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+.page {
+    display: none;
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 10px;
+}
 
-        .page {
-            display: none;
-            max-width: 850px;
-            margin: 20px auto;
-        }
+.active {
+    display: block;
+}
 
-        .active {
-            display: block;
-        }
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    border: 8px solid #8b6a46;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            border: 8px solid #8b6a46;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            width: 100%;
-        }
+h1 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #5a3e2b;
+    margin-top: 10px;
+}
 
-        h1 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(24px, 5vw, 34px); /* Responsive font size */
-            color: #5a3e2b;
-            margin-top: 10px;
-        }
+.lang {
+    text-align: right;
+    margin-bottom: 10px;
+}
 
-        .lang {
-            text-align: right;
-            margin-bottom: 10px;
-        }
+.lang button {
+    padding: 6px 12px;
+    margin-left: 6px;
+    font-size: 13px;
+    border-radius: 5px;
+    border: 1px solid #c9b79c;
+    background: #f3ede4;
+    cursor: pointer;
+}
 
-        .lang button {
-            padding: 6px 12px;
-            margin-left: 6px;
-            font-size: 13px;
-            border-radius: 5px;
-            border: 1px solid #c9b79c;
-            background: #f3ede4;
-            cursor: pointer;
-        }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 16px;
-        }
+td {
+    padding: 12px 5px;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+    vertical-align: top;
+}
 
-        td {
-            padding: 14px;
-            border-bottom: 1px solid #eee;
-            vertical-align: top;
-        }
+/* Label Column */
+td:first-child {
+    font-weight: 600;
+    color: #6b4c33;
+    width: 35%; /* Keeps labels consistent */
+}
 
-        td:first-child {
-            font-weight: 600;
-            color: #6b4c33;
-            width: 35%;
-        }
+/* FIX: Mobile View - Keeps Label and Value on the same line */
+@media (max-width: 600px) {
+    .card {
+        padding: 15px;
+        border-width: 5px;
+    }
 
-        /* FIX 2: Mobile Responsive Adjustments */
-        @media (max-width: 600px) {
-            .card {
-                padding: 15px;
-                border-width: 5px;
-            }
+    h1 {
+        font-size: 24px;
+    }
 
-            td {
-                display: block;
-                width: 100% !important;
-                padding: 8px 5px;
-            }
+    table {
+        margin-top: 5px;
+    }
 
-            td:first-child {
-                border-bottom: none;
-                padding-bottom: 0;
-                font-size: 14px;
-            }
+    td {
+        font-size: 13px; /* Slightly smaller text to prevent wrapping */
+        padding: 10px 4px;
+    }
 
-            td:last-child {
-                padding-top: 2px;
-                margin-bottom: 10px;
-            }
+    /* This ensures they stay side-by-side even on tiny screens */
+    tr {
+        display: flex;
+        width: 100%;
+    }
 
-            .button-row {
-                gap: 5px;
-            }
-            
-            .iconbtn {
-                width: 48px !important;
-                height: 48px !important;
-            }
-        }
+    td:first-child {
+        min-width: 100px; /* Adjust this based on your longest label */
+        width: 35%;
+        flex-shrink: 0;
+    }
 
-        .actions {
-            width: 100%;
-            max-width: 400px;
-            margin: 30px auto 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+    td:last-child {
+        width: 65%;
+        word-wrap: break-word;
+    }
+}
 
-        .photo-btn {
-            width: 100%;
-            padding: 16px;
-            background: #b48a54;
-            color: white;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-bottom: 20px;
-        }
+/* Action Buttons */
+.actions {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
 
-        .button-row {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        }
+.photo-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 14px;
+    background: #b48a54;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 15px;
+}
 
-        .iconbtn {
-            width: 55px;
-            height: 55px;
-            border-radius: 10px;
-            border: 1px solid #c8b48d;
-            background: #faf7f2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            cursor: pointer;
-            color: #6b4c33;
-        }
+.button-row {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
 
-        /* Gallery Styles */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .gallery img {
-            width: 100%;
-            max-width: 200px;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            cursor: pointer;
-            border: 4px solid #e6d8c3;
-        }
-
-        @media (max-width: 500px) {
-            .gallery img {
-                max-width: 100%;
-                height: auto;
-            }
-        }
-
-        .popup {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .popup img {
-            max-width: 95%;
-            max-height: 90%;
-            border-radius: 5px;
-        }
-    </style>
-
+.iconbtn {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px solid #c8b48d;
+    background: #faf7f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    color: #6b4c33;
+}
+</style>
     <script>
         function showPage(page) {
             document.getElementById("home").classList.remove("active");
