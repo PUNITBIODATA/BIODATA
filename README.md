@@ -1,1 +1,302 @@
-# BIODATA
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta charset="UTF-8">
+<title>Punit Shaw Biodata</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Open+Sans&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+
+/* Apply border-box to everything to prevent margin/padding overflow */
+*{
+  box-sizing: border-box;
+}
+
+body{
+margin:0;
+background:#f5f1e8;
+font-family:'Open Sans',sans-serif;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+.page{
+display:none;
+max-width:850px;
+margin:40px auto;
+padding:20px;
+}
+
+.active{
+display:block;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:12px;
+border:10px solid #8b6a46;
+box-shadow:0 6px 20px rgba(0,0,0,0.15);
+width: 100%;
+}
+
+h1{
+text-align:center;
+font-family:'Playfair Display',serif;
+font-size:34px;
+color:#5a3e2b;
+margin-top:0;
+}
+
+.lang{
+text-align:right;
+margin-bottom:10px;
+}
+
+.lang button{
+padding:6px 12px;
+margin-left:6px;
+font-size:13px;
+border-radius:5px;
+border:1px solid #c9b79c;
+background:#f3ede4;
+cursor:pointer;
+}
+
+.lang button:hover{
+background:#e6dac7;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+font-size:16px;
+}
+
+td{
+padding:14px;
+border-bottom:1px solid #eee;
+}
+
+td:first-child{
+font-weight:600;
+color:#6b4c33;
+width:35%;
+}
+
+/* BUTTON AREA - FIXED TO STAY INSIDE MARGINS */
+
+.actions{
+width: 100%; /* Uses full width of the card's inner space */
+max-width: 400px; /* Optional: keeps it from getting too wide on desktop */
+margin: 30px auto 0 auto;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+/* PHOTOS BUTTON */
+
+.photo-btn{
+width: 100%; /* Perfectly matches the space between margins */
+padding: 16px;
+background: #b48a54;
+color: white;
+font-size: 18px;
+font-weight: 600;
+border-radius: 8px;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+cursor: pointer;
+transition: 0.3s;
+margin-bottom: 20px;
+}
+
+.photo-btn:hover{
+background: #9c743f;
+}
+
+/* ICON ROW */
+
+.button-row{
+display: flex;
+justify-content: space-between; /* Aligns first/last icons with the button edges */
+width: 100%;
+}
+
+/* ICON BUTTONS */
+
+.iconbtn{
+width: 55px;
+height: 55px;
+border-radius: 10px;
+border: 1px solid #c8b48d;
+background: #faf7f2;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 24px;
+cursor: pointer;
+transition: 0.2s;
+color: #6b4c33;
+}
+
+.iconbtn:hover{
+background: #efe7db;
+color: #8b6a46;
+}
+
+/* PHOTO GALLERY */
+
+.gallery{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:20px;
+}
+
+.gallery img{
+width:220px;
+height:220px;
+object-fit:cover;
+margin:10px;
+border-radius:8px;
+cursor:pointer;
+border:4px solid #e6d8c3;
+}
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.85);
+display:none;
+justify-content:center;
+align-items:center;
+}
+
+.popup img{
+max-width:90%;
+max-height:90%;
+border-radius:8px;
+}
+
+</style>
+
+<script>
+
+function showPage(page){
+document.getElementById("home").classList.remove("active");
+document.getElementById("photos").classList.remove("active");
+document.getElementById(page).classList.add("active");
+}
+
+function setLang(lang){
+if(lang=="en"){
+document.getElementById("name_l").innerText="Name";
+document.getElementById("dob_l").innerText="Date of Birth";
+document.getElementById("height_l").innerText="Height";
+document.getElementById("edu_l").innerText="Education";
+document.getElementById("work_l").innerText="Profession";
+document.getElementById("father_l").innerText="Father Name";
+document.getElementById("mother_l").innerText="Mother Name";
+document.getElementById("rashi_l").innerText="Rashi";
+}
+if(lang=="hi"){
+document.getElementById("name_l").innerText="नाम";
+document.getElementById("dob_l").innerText="जन्म तिथि";
+document.getElementById("height_l").innerText="ऊंचाई";
+document.getElementById("edu_l").innerText="शिक्षा";
+document.getElementById("work_l").innerText="पेशा";
+document.getElementById("father_l").innerText="पिता का नाम";
+document.getElementById("mother_l").innerText="माता का नाम";
+document.getElementById("rashi_l").innerText="राशि";
+}
+}
+
+function openImg(src){
+document.getElementById("popup").style.display="flex";
+document.getElementById("popupimg").src=src;
+}
+
+function closeImg(){
+document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</head>
+
+<body>
+
+<div id="home" class="page active">
+
+<div class="card">
+
+<div class="lang">
+<button onclick="setLang('en')">English</button>
+<button onclick="setLang('hi')">Hindi</button>
+</div>
+
+<h1>Punit Shaw</h1>
+
+<table>
+<tr><td id="name_l">Name</td><td>Punit Shaw</td></tr>
+<tr><td id="dob_l">Date of Birth</td><td>DD/MM/YYYY</td></tr>
+<tr><td id="height_l">Height</td><td>5'10"</td></tr>
+<tr><td id="edu_l">Education</td><td>MSc Physics</td></tr>
+<tr><td id="work_l">Profession</td><td>Physics Teacher - Sri Jain Vidyalaya</td></tr>
+<tr><td id="father_l">Father Name</td><td>XXXXXXXX</td></tr>
+<tr><td id="mother_l">Mother Name</td><td>XXXXXXXX</td></tr>
+<tr><td id="rashi_l">Rashi</td><td>XXXX</td></tr>
+</table>
+
+<div class="actions">
+
+<div class="photo-btn" onclick="showPage('photos')">
+<i class="fa-solid fa-image"></i>
+Photos
+</div>
+
+<div class="button-row">
+<a href="biodata.pdf" download><div class="iconbtn"><i class="fa-solid fa-download"></i></div></a>
+<a href="https://wa.me/91XXXXXXXXXX"><div class="iconbtn"><i class="fa-brands fa-whatsapp"></i></div></a>
+<a href="tel:+91XXXXXXXXXX"><div class="iconbtn"><i class="fa-solid fa-phone"></i></div></a>
+<a href="https://instagram.com/yourusername"><div class="iconbtn"><i class="fa-brands fa-instagram"></i></div></a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="photos" class="page">
+<div class="card">
+<div class="iconbtn" onclick="showPage('home')" style="margin-bottom:20px;"><i class="fa-solid fa-arrow-left"></i></div>
+<h1>Photos</h1>
+<div class="gallery">
+<img src="https://drive.google.com/uc?id=IMAGE_ID1" onclick="openImg(this.src)">
+<img src="https://drive.google.com/uc?id=IMAGE_ID2" onclick="openImg(this.src)">
+</div>
+</div>
+</div>
+
+<div class="popup" id="popup" onclick="closeImg()">
+<img id="popupimg">
+</div>
+
+</body>
+</html>
