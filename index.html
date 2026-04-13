@@ -244,10 +244,10 @@
 
         function setLang(lang) {
             const translations = {
-                'en': ["Name", "Date of Birth", "Height", "Education", "Profession", "Interests", "Address", "Rashi", "Father", "Mother", "Elder Sister"],
-                'hi': ["नाम", "जन्म तिथि", "ऊंचाई", "शिक्षा", "पेशा", "रुचि", "पता", "राशि", "पिता", "माता", "बड़ी बहन"]
+                'en': ["Name", "Date of Birth", "Height", "Education", "Secondary","Higher Secondary","Graduation","B.Ed","Post Graduation", "Profession", "Experience", "Interests", "Address", "Rashi", "Father", "Mother", "Elder Sister"],
+                'hi': ["नाम", "जन्म तिथि", "ऊंचाई", "शिक्षा","माध्यमिक","उच्च माध्यमिक","स्नातक", "बी.एड (शिक्षा स्नातक)","स्नातकोत्तर","पेशा", "अनुभव", "रुचि", "पता", "राशि", "पिता", "माता", "बड़ी बहन"]
             };
-            const ids = ["name_l", "dob_l", "height_l", "edu_l", "work_l", "interest_l", "address_l", "rashi_l", "father_l", "mother_l", "sister_l"];
+            const ids = ["name_l", "dob_l", "height_l", "edu_l","Secondary","Higher Secondary","Graduation","B.Ed","Post Graduation", "Profession", "work_l", "interest_l", "address_l", "rashi_l", "father_l", "mother_l", "sister_l"];
             
             ids.forEach((id, index) => {
                 document.getElementById(id).innerText = translations[lang][index];
@@ -281,7 +281,13 @@
                 <tr><td id="dob_l">Date of Birth</td><td>05/11/1999</td></tr>
                 <tr><td id="height_l">Height</td><td>5'10"</td></tr>
                 <tr><td id="edu_l">Education</td><td>BSc Electronics, BEd Physical Science, MSc Physics.</td></tr>
-                <tr><td id="work_l">Profession</td><td>Physics Teacher - Delhi Public School Ruby Park Kolkata</td></tr>
+                 <tr><td id="Secondary">Secondary</td><td>Rose Bud Eng Med School ICSE (2016)</td></tr>
+                 <tr><td id="Higher Secondary">Higher Secondary</td><td>Bodhicariya Sr Sec School CBSE (2018)</td></tr>
+                 <tr><td id="Graduation">Graduation</td><td>BSc Electronics (Honours) Calcutta University (2021)</td></tr>
+                 <tr><td id="B.Ed">B.Ed</td><td>B Ed Physical Science BSAEU (2023)</td></tr>
+                 <tr><td id="Post Graduation">Post Graduation</td><td> MSc Physics AISECT University (2025)</td></tr>
+                <tr><td id="work_l">Profession</td><td>Physics Teacher - Delhi Public School Ruby Park Kolkata </td></tr>
+                 <tr><td id="Experience">Experience</td><td> Working as school teacher science 2022 </td></tr>
                 <tr><td id="interest_l">Interests</td><td>Electronics Circuits, Web Page Development</td></tr>
                 <tr><td id="rashi_l">Rashi</td><td>Kanya</td></tr>
                 <tr><td id="address_l">Address</td><td>Tirtha Apartment, Sodpur, North 24 Parganas, WB – 700110</td></tr>
