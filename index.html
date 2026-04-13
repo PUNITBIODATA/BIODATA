@@ -243,6 +243,7 @@
         }
 
         function setLang(lang) {
+            document.documentElement.lang = lang;  // 👈 ADD THIS LINE HERE
             const translations = {
                 'en': ["Name", "Date of Birth", "Height", "Education", "Secondary", "Higher Secondary", "Graduation", "B.Ed", "Post Graduation", "Profession", "Experience", "Interests", "Address", "Rashi", "Father", "Mother", "Elder Sister"],
                 'hi': ["नाम", "जन्म तिथि", "ऊंचाई", "शिक्षा", "माध्यमिक", "उच्च माध्यमिक", "स्नातक", "बी.एड (शिक्षा स्नातक)", "स्नातकोत्तर", "पेशा", "अनुभव", "रुचि", "पता", "राशि", "पिता", "माता", "बड़ी बहन"]
