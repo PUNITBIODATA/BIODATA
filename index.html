@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +50,10 @@
             width: 100%;
             overflow: hidden; /* Keeps content inside */
         }
-
+	.divider td {
+    border-bottom: 2px solid #b48a54;
+    padding: 8px 0;
+}
         h1 {
             text-align: center;
             font-family: 'Playfair Display', serif;
@@ -201,6 +205,15 @@
                 height: 200px;
             }
         }
+.section-title td {
+    font-weight: bold;
+    font-size: 16px;
+    background: #f3ede4;
+    color: #5a3e2b;
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #b48a54;
+}
 
         /* Popup Styles */
         .popup {
@@ -247,36 +260,51 @@
     // Change page language
     document.documentElement.lang = lang;
 
-    const translations = {
-        en: [
-            "Name", "Date of Birth", "Height", "Education",
+   const translations = {
+    en: {
+        labels: [
+            "Name", "Date of Birth", "Height",
             "Secondary", "Higher Secondary", "Graduation", "B.Ed", "Post Graduation",
             "Profession", "Experience", "Interests", "Address",
             "Rashi", "Father", "Mother", "Elder Sister"
         ],
-        hi: [
-            "नाम", "जन्म तिथि", "ऊंचाई", "शिक्षा",
+        sections: {
+            edu: "Education",
+            prof: "Profession"
+        }
+    },
+    hi: {
+        labels: [
+            "नाम", "जन्म तिथि", "ऊंचाई",
             "माध्यमिक", "उच्च माध्यमिक", "स्नातक", "बी.एड (शिक्षा स्नातक)", "स्नातकोत्तर",
             "पेशा", "अनुभव", "रुचि", "पता",
             "राशि", "पिता", "माता", "बड़ी बहन"
-        ]
-    };
+        ],
+        sections: {
+            edu: "शिक्षा",
+            prof: "पेशा"
+        }
+    }
+};
 
     const ids = [
-        "name_l", "dob_l", "height_l", "edu_l",
+        "name_l", "dob_l", "height_l", 
         "secondary_l", "higher_secondary_l", "graduation_l", "bed_l", "post_graduation_l",
         "work_l", "experience_l", "interest_l", "address_l",
         "rashi_l", "father_l", "mother_l", "sister_l"
     ];
 
-    ids.forEach((id, index) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.innerText = translations[lang][index];
-        }
-    });
-}
+ids.forEach((id, index) => {
+    const element = document.getElementById(id);
+    if (element) {
+        element.innerText = translations[lang].labels[index];
+    }
+});
 
+// Section titles update
+document.getElementById("edu_section").innerText = translations[lang].sections.edu;
+document.getElementById("prof_section").innerText = translations[lang].sections.prof;
+}
         function openImg(src) {
             document.getElementById("popup").style.display = "flex";
             document.getElementById("popupimg").src = src;
@@ -303,20 +331,27 @@
                 <tr><td id="name_l">Name</td><td>Punit Shaw</td></tr>
                 <tr><td id="dob_l">Date of Birth</td><td>05/11/1999</td></tr>
                 <tr><td id="height_l">Height</td><td>5'10"</td></tr>
-                <tr><td id="edu_l">Education</td><td>BSc Electronics, BEd Physical Science, MSc Physics.</td></tr>
+		<tr><td id="rashi_l">Rashi</td><td>Kanya</td></tr>
+                <tr><td id="address_l">Address</td><td>Tirtha Apartment, Sodpur, North 24 Parganas, WB – 700110</td></tr>
+                <tr><td id="father_l">Father</td><td>Jiten Shaw (Mason)</td></tr>
+                <tr><td id="mother_l">Mother</td><td>Dugni Devi Shaw (House Wife)</td></tr>
+                <tr><td id="sister_l">Elder Sister</td><td>Kanchan Kumari Shaw (Primary School Teacher) - married</td></tr>
+<tr class="section-title">
+    <td colspan="2" id="edu_section">Education</td>
+</tr>
                <tr><td id="secondary_l">Secondary</td><td>Rose Bud Eng Med School ICSE (2016)</td></tr>
                 <tr><td id="higher_secondary_l">Higher Secondary</td><td>Bodhicariya Sr Sec School CBSE (2018)</td></tr>
                 <tr><td id="graduation_l">Graduation</td><td>B Sc Electronics (Honours) Calcutta University (2021)</td></tr>
                 <tr><td id="bed_l">B.Ed</td><td>B Ed Physical Science BSAEU (2023)</td></tr>
                 <tr><td id="post_graduation_l">Post Graduation</td><td>M Sc Physics AISECT University (2025)</td></tr>
+               <tr><td id="interest_l">Interests</td><td>Electronics Circuits, Web Page Development</td></tr>
+<tr class="section-title">
+    <td colspan="2" id="prof_section">Profession</td>
+</tr>
                 <tr><td id="work_l">Profession</td><td>Physics Teacher - Delhi Public School Ruby Park Kolkata</td></tr>
-                <tr><td id="experience_l">Experience</td><td>Working as a school teacher since 2022</td></tr>
-                <tr><td id="interest_l">Interests</td><td>Electronics Circuits, Web Page Development</td></tr>
-                <tr><td id="rashi_l">Rashi</td><td>Kanya</td></tr>
-                <tr><td id="address_l">Address</td><td>Tirtha Apartment, Sodpur, North 24 Parganas, WB – 700110</td></tr>
-                <tr><td id="father_l">Father</td><td>Jiten Shaw (Mason)</td></tr>
-                <tr><td id="mother_l">Mother</td><td>Dugni Devi Shaw (House Wife)</td></tr>
-                <tr><td id="sister_l">Elder Sister</td><td>Kanchan Kumari Shaw (Primary School Teacher) - married</td></tr>
+                <tr><td id="experience_l">Experience</td><td>Working as a school teacher since 2022 </td></tr>
+ 
+                
             </table>
 
             <div class="actions">
